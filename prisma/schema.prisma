@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Ticket {
+  id         Int       @id @default(autoincrement())
+  clientName String    @map("client_name")
+  status     String    @default("OPEN")
+  messages   Message[]
+
+  @@map("tickets")
+}
+
+model Message {
+  id       Int    @id @default(autoincrement())
+  content  String
+  sender   String
+  ticketId Int    @map("ticket_id")
+
+  Ticket Ticket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+
+  @@map("messages")
+}
