@@ -8,7 +8,16 @@ export class TicketsRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
   findAll() {
-    return this.prismaService.ticket.findMany();
+    return this.prismaService.ticket.findMany({
+      include: {
+        messages: {
+          take: 1,
+          orderBy: {
+            id: 'desc',
+          },
+        },
+      },
+    });
   }
 
   update(updateDto: Prisma.TicketUpdateArgs) {
