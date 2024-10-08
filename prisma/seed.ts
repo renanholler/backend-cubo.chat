@@ -8,7 +8,7 @@ async function main() {
   await Promise.all([
     prisma.ticket.create({
       data: {
-        clientName: 'Renan Silva',
+        clientName: 'Renan Ricardo',
         status: TicketStatusType.WAITING,
         messages: {
           create: [
@@ -22,7 +22,7 @@ async function main() {
     }),
     prisma.ticket.create({
       data: {
-        clientName: 'João Silva',
+        clientName: 'Marcos Renato',
         status: TicketStatusType.OPEN,
         messages: {
           create: [
@@ -48,7 +48,7 @@ async function main() {
     }),
     prisma.ticket.create({
       data: {
-        clientName: 'Maria Oliveira',
+        clientName: 'Sandra Aparecida',
         status: TicketStatusType.CLOSED,
         messages: {
           create: [
@@ -63,6 +63,38 @@ async function main() {
             {
               content: 'Pode nos contar mais detalhes?',
               sender: SenderType.CUBO_CHAT,
+            },
+          ],
+        },
+      },
+    }),
+    prisma.ticket.create({
+      data: {
+        clientName: 'Tabata Souza',
+        status: TicketStatusType.OPEN,
+        messages: {
+          create: [
+            {
+              content: 'Meu produto ainda não chegou.',
+              sender: SenderType.CLIENT,
+            },
+            {
+              content: 'Pode nos contar mais detalhes?',
+              sender: SenderType.CUBO_CHAT,
+            },
+          ],
+        },
+      },
+    }),
+    prisma.ticket.create({
+      data: {
+        clientName: 'Matheus Henrique',
+        status: TicketStatusType.OPEN,
+        messages: {
+          create: [
+            {
+              content: 'Olá.',
+              sender: SenderType.CLIENT,
             },
           ],
         },
