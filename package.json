@@ -23,7 +23,7 @@
     "prisma:db:seed": "prisma db seed",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate deploy",
-    "postinstall": "prisma generate && prisma migrate deploy"
+    "postinstall": "prisma generate && prisma migrate deploy && prisma db seed"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
