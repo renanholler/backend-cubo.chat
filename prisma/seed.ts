@@ -5,6 +5,13 @@ import { TicketStatusType } from '../src/modules/tickets/entities/Ticket';
 const prisma = new PrismaClient();
 
 async function main() {
+  const tickets = await prisma.ticket.findMany();
+
+  if (tickets.length > 0) {
+    console.log('Tickets already seeded.');
+    return;
+  }
+
   await Promise.all([
     prisma.ticket.create({
       data: {
