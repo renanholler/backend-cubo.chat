@@ -20,4 +20,4 @@ RUN npx prisma generate
 EXPOSE 3000
 
 # Adicionando comando para rodar as migrations e seeds ao iniciar
-CMD ["sh", "-c", "if [ ! -f /app/database/dev.db ]; then npx prisma migrate deploy && npx prisma db seed; fi && npm run start:dev"]
+CMD ["sh", "-c", "if [ ! -f /app/database/dev.db ]; then npx prisma migrate deploy && npx ts-node prisma/seed.ts; fi && npm run start:dev"]
