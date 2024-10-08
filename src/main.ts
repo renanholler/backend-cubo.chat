@@ -7,9 +7,8 @@ async function bootstrap() {
 
   // Configuração detalhada de CORS
   app.enableCors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: ['http://localhost:5173', process.env.FRONTEND_URL], // URLs permitidas
     methods: 'GET,PATCH', // Métodos permitidos
-    credentials: true, // Habilitar cookies
   });
 
   app.useGlobalPipes(new ValidationPipe());
