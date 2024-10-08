@@ -7,8 +7,8 @@ WORKDIR /app
 # Copiando arquivos de dependências
 COPY package*.json ./
 
-# Instalando dependências
-RUN npm install --only=production && npm install
+# Instalando dependências, incluindo o CLI do NestJS
+RUN npm install --only=production && npm install @nestjs/cli
 
 # Copiando todo o código
 COPY . .
