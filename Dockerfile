@@ -4,14 +4,14 @@ FROM node:18
 # Definindo o diretório de trabalho
 WORKDIR /app
 
-# Instalando a CLI do NestJS globalmente
-RUN npm install -g @nestjs/cli
+# Instalando a CLI do NestJS globalmente e ts-node
+RUN npm install -g @nestjs/cli ts-node
 
 # Copiando arquivos de dependências
 COPY package*.json ./
 
 # Instalando dependências
-RUN npm install --only=development && npm install
+RUN npm install --only=production && npm install
 
 # Copiando todo o código
 COPY . .
